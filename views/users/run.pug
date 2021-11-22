@@ -1,0 +1,109 @@
+doctype html
+head
+  title Master Chess
+  link(rel='icon' href='./img/icon.jpg')
+  link(rel='stylesheet' type='text/css' href='./css/semantic.min.css')
+  link(rel='stylesheet' href='./css/chessboard-1.0.0.min.css')
+  link(rel='stylesheet' href='./css/styles.css')
+audio#myAudio
+  source(src='./mp3/soundMove.mp3' type='audio/mpeg')
+  |         Your browser does not support the audio element.
+audio#messageTone
+  source(src='./mp3/insight.mp3' type='audio/mpeg')
+  |         Your browser does not support the audio element.
+// Navbar
+div
+  .ui.secondary.menu(style='margin: 0; border-bottom: 4px solid gray; padding: 3px 0; ')
+    img(src='./img/icon.png' style='width:80px;height:80px;')
+    h2(style='text-decoration: underline;') Master Chess
+    .right.menu
+      .ui.labeled.button(style='margin-top:20px; height: 40px; padding-right: 20px; margin-right: 15px;' tabindex='0')
+        .ui.button
+          i.user.icon
+          |  #Players
+        a.ui.basic.label
+          span#players 0
+      .ui.labeled.button(style='margin-top:20px; height: 40px; padding-left: 20px;  margin-right: 15px;' tabindex='0')
+        .ui.button
+          i.star.icon
+          |  #Rooms
+        a.ui.basic.label
+          span#rooms 0
+div
+  #gameMode
+    h1(style='text-align: center;font-size: 130px;\
+    line-height: 160px;\
+    color:lightskyblue;-webkit-text-stroke: 1px #fff;background: url(img/back.png);-webkit-background-clip: text;background-position: 0 0;animation:back 20s linear infinite;') Game Mode
+    // style="text-align: center; margin: 10px; font-size: 35px;"
+    div(style='text-align:center;')
+      button#singlePlayer.game.ui.black.button Single Player
+    div(style='text-align:center;')
+      button#multiPlayer.game.ui.black.button Multi Player
+  #joinFormDiv(style='display: none;')
+    form#joinForm
+      h1(style='text-align: center; margin: 10px; font-size: 35px;') Start Game
+      div(style='text-align:center;')
+        input.formInput(type='text' placeholder='Name' style='padding: 10px;')
+      div(style='text-align:center;')
+        input.formInput(type='text' placeholder='Room' style='padding: 10px;')
+      #roomDropdownP(style='text-align:center;  height: 50px; margin: 10px; padding: 0 4px; ')
+        #roomDropdown.ui.fluid.search.selection.dropdown(style='border: 1px solid gray; width: 300px; margin:auto;')
+          input(type='hidden' name='country')
+          i.dropdown.icon
+          .default.text Select Room
+          #dropRooms.menu
+            //
+              <div class="item" data-value="af"><i class="icon star"></i>Afghanistan</div>
+              <div class="item" data-value="ar"><i class="icon star"></i>Argentina</div>
+      div(style='text-align:center;')
+        button#joinButton.game.ui.black.button(style='background-image: linear-gradient(-60deg, rgb(15, 184, 173) 16%, rgb(44, 181, 232) 77%);') Join
+      div(style='text-align:center;')
+        p#message
+  // /Input Form
+  div
+    // Chess Board
+    #chessGame(style='display: none;')
+      // Color Schemes
+      div(style='text-align: center; margin: 10px;')
+        button#grey_board.ui.button.black.color_b(style=' background-image:linear-gradient(to right, #d3cce3 0%, #e9e4f0 100%);') Grey
+        button#orange_board.ui.button.grey.color_b(style='background-image: linear-gradient(58deg, #e44d26 0%, #f16529 100%);') Orange
+        button#green_board.ui.button.grey.color_b(style='background-image:linear-gradient(to right, #0cebeb 0%, #20e3b2 33%, #29ffc6 100%)') Green
+        button#blue_board.ui.button.grey.color_b(style='background-image:linear-gradient(to right, #00c6ff 0%, #0072ff 100%)') Blue
+      // Status and PGN
+      #statusPGN(style='text-align: center; display: none;')
+        div
+          label
+            h3
+              strong Status
+          #status Your Turn
+        div
+          label
+            h3
+              strong History
+          #pgn(style='overflow: auto; white-space: nowrap; width: 500px; margin: auto;')
+      #myBoard(style='width: 569px; margin: auto; margin-top: 10px; margin-bottom: 10px;')
+      div(style='text-align: center; margin-bottom: 20px;')
+        a.ui.button.black(href='/users' style='width: 569px;background-image: linear-gradient(to right, #b2fefa 0%, #0ed2f7 100%)') Leave Game
+// Chatting window
+#chat(style=' background-color: white; display: none; text-align: right; position: fixed; bottom: 0; right: 0; width: 400px; margin-right: 10px; border: 2px solid black;')
+  #messageBox.ui.button.grey(style='border-radius: 0; width: 100%; padding: 15px; font-size: 16px;')
+    | Messages
+  #chatBox(style='display: none; padding: 12px;')
+    #chatContent(style='height: 240px; overflow-y: auto; word-break: break-all; ')
+      //
+        <div class="myMessage">Hello</div>
+        <div class="youMessage">his</div>
+    form.ui.form(style='margin-bottom: 0;')
+      div(style='display: flex; justify-content: space-around;')
+        input#inputMessage.form-control(type='text' placeholder='Send a Message' style='margin-right: 10px;')
+        button#send.ui.black.button Send
+div(style='background-color: black; color: white; margin-top:auto; padding: 15px; text-align: center; font-size: 15px;')
+  i &quot;There is no such thing as a great talent without great will power.&quot;
+script(src='https://code.jquery.com/jquery-3.1.1.min.js' integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=' crossorigin='anonymous')
+script(src='./js/semantic.min.js')
+script(src='/socket.io/socket.io.js')
+script(src='./js/chessboard-1.0.0.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.js' integrity='sha384-s3XgLpvmHyscVpijnseAmye819Ee3yaGa8NxstkJVyA6nuDFjt59u1QvuEl/mecz' crossorigin='anonymous')
+script(src='./js/app.js')
+audio(autoplay='' loop='')
+  source(src='mp3/frad.mp3')

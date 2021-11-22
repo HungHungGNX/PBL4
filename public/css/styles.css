@@ -1,0 +1,187 @@
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+#singlePlayer,
+#multiPlayer,
+#joinButton {
+    margin: 10px;
+    width: 300px;
+    padding: 20px;
+    font-size: 22px;
+}
+
+#gameMode,
+#joinFormDiv {
+    padding: 10px;
+    margin-top: 8%;
+}
+
+.black-3c85d {
+    background-color: #E1E1E1;
+    color: #FFFFFF;
+}
+
+.white-1e1d7 {
+    background-color: #FFFFFF;
+    color: #E1E1E1;
+}
+
+#grey_board,
+#orange_board,
+#green_board,
+#blue_board {
+    margin: 6px;
+    width: 130px;
+}
+
+.formInput {
+    border: 1px solid gray;
+    height: 50px;
+    border-radius: 4px;
+    width: 300px;
+    margin: 10px;
+    padding: 0 4px;
+}
+
+.myMessage {
+    text-align: right;
+    padding: 8px;
+    background-color: #E0E0E0;
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-right: 7px;
+    clear: both;
+    float: right;
+    border-radius: 5px;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+
+.youMessage {
+    text-align: left;
+    padding: 8px;
+    background-color: #616161;
+    color: white;
+    font-size: 17px;
+    margin-bottom: 10px;
+    clear: both;
+    border-radius: 5px;
+    float: left;
+}
+
+
+/* Button */
+
+#singlePlayer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-image: linear-gradient(91deg, #74ebd5 0%, #acb6e5 100%);
+}
+
+
+/* Button */
+
+#multiPlayer {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: none;
+    background-image: linear-gradient(91deg, #74ebd5 0%, #acb6e5 100%);
+}
+
+
+/* Button */
+
+.secondary .labeled .button {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px !important;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px !important;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0) inset;
+}
+
+
+/* Button */
+
+#singlePlayer {
+    transform: translatex(168px) translatey(0px);
+}
+
+
+/* Button */
+
+#multiPlayer {
+    transform: translatex(-175px) translatey(-84px);
+}
+
+
+/* Button */
+
+.secondary .labeled .button {
+    min-height: 41px;
+    transform: translatex(0px) translatey(0px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px !important;
+    background-image: linear-gradient(to right, #b2fefa 0%, #0ed2f7 100%);
+}
+
+@keyframes back {
+    100% {
+        background-position: 2000px 0;
+    }
+}
+
+
+/* Heading */
+
+div #gameMode h1 {
+    width: 77% !important;
+}
+
+
+/* Heading */
+
+#gameMode h1 {
+    transform: translatex(160px) translatey(-9px);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-image: linear-gradient(to right, #b2fefa 0%, #0ed2f7 100%);
+}
+
+
+/* Division */
+
+body>div:nth-child(6) {
+    background-image: linear-gradient(-60deg, rgb(15, 184, 173) 16%, rgb(44, 181, 232) 77%);
+}
+
+.ui.grey.button,
+.ui.grey.buttons .button {
+    background-color: #767676;
+    color: #fff;
+    text-shadow: none;
+    background-image: linear-gradient( -60deg, rgb(15, 184, 173) 16%, rgb(44, 181, 232) 77%);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 31px;
+    border-bottom-left-radius: 31px;
+    border-bottom-right-radius: 32px;
+}

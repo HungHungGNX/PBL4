@@ -1,0 +1,66 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  script(src='https://kit.fontawesome.com/64d58efce2.js', crossorigin='anonymous')
+  link(rel='stylesheet', href='./css/stylelogin.css')
+  title Login
+.container
+  .forms-container
+    .signin-signup
+      form.sign-in-form(action='./login', method='POST')
+        h1 GAME MASTER CHESS
+        h2.title Sign in
+        .input-field
+          i.fas.fa-user
+          input#email(type='email', name='email', placeholder='abc@example.com', required='')
+        .input-field
+          i.fas.fa-lock
+          input#password(type='password', name='password', required='')
+        input.btn.solid(type='submit', value='Login')
+        p.social-text If you want to know more about our product
+        .social-media
+          a.social-icon(href='https://www.facebook.com/')
+            i.fab.fa-facebook-f
+          a.social-icon(href='#')
+            i.fab.fa-twitter
+          a.social-icon(href='#')
+            i.fab.fa-google
+          a.social-icon(href='#')
+            i.fab.fa-linkedin-in
+      form.sign-up-form(action='./register', method='POST')
+        h2.title Sign up
+        .input-field
+          i.fas.fa-user
+          input(type='text', placeholder='Username')
+        .input-field
+          i.fas.fa-envelope
+          input#email(type='email', name='email', placeholder='abc@example.com', required='')
+        .input-field
+          i.fas.fa-lock
+          input#password(input='', type='password', name='password', required='')
+        input.btn(type='submit', value='Sign up')
+        p.social-text If you want to know more about our product
+        .social-media
+          a.social-icon(href='https://www.facebook.com/')
+            i.fab.fa-facebook-f
+          a.social-icon(href='#')
+            i.fab.fa-twitter
+          a.social-icon(href='#')
+            i.fab.fa-google
+          a.social-icon(href='#')
+            i.fab.fa-linkedin-in
+  .panels-container
+    .panel.left-panel
+      .content
+        h3 Master Chess
+        p Please sign up to experience the game
+        button#sign-up-btn.btn.transparent Sign up
+      img.image(src='img/test1.png', alt='')
+    .panel.right-panel
+      .content
+        h3 Let&apos;s go
+        p Please log in to experience the game
+        button#sign-in-btn.btn.transparent Sign in
+      img.image(src='img/register.svg', alt='')
+script(src='js/login.js')
