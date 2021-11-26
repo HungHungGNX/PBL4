@@ -1,48 +1,31 @@
 var db = require('./database'); //chèn model database vào đế kết nối db
 var data = null; //biến để chứa dữ liệu đổ về cho controller
-exports.create = function(nameCat, order, showHide) {
-    //chèn record mới vào table catalogs
+exports.create = function(values, callback) {
+
+    var sql = "INSERT INTO account (Id, UserName,Email,Password) VALUES ?";
+    db.query(sql, [values], function(err, result) {
+        if (err) throw err;
+        callback(result.affectedRows);
+    });
 }
 exports.update = function(idCat, nameCat, order, showHide) {
     //cập nhật record vào table
 }
-exports.checkUserName = function(email) {
+exports.checkUserName = function(email, callBack) {
     let sql = `SELECT * FROM account where email = ${email}`;
     db.query(sql, function(err, item) {
         if (err) throw err;
         data = item[0];
+        callBack(data);
     });
-    return data;
 }
-exports.listUserName = function() {
+exports.listUserName = function(callBack) {
     let sql = `SELECT * FROM account`;
-    db.query(sql, function(err, item) {
+    db.query(sql, (err, item) => {
         if (err) throw err;
-        return (item);
+        callBack(item);
     });
 }
 exports.delete = function(idCat) {
     //xóa 1 record 
 }
-
-
-// console.log(exports.checkUserName("'longgiaquyen2001@gmail.com'"));
-
-async function test() {
-    data = await getColour();
-    console.log(data);
-}
-
-function getColour() {
-    return new Promise((resolve, reject) => {
-        db.query(
-            "SELECT * FROM account",
-            (err, result) => {
-                return err ? reject(err) : resolve(result);
-            }
-        );
-    });
-}
-
-console.log(test());
-console.log(data);

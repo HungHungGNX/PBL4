@@ -11,10 +11,11 @@ router.get('/', controller.index);
 
 router.get('/run', controller.run);
 
-router.get('/cookie', function(req, res, next) {
-    res.cookie('user-id', 12345);
-    res.send('Hello');
-});
-
+router.get('/logout', function(req, res) {
+    res.cookie('userId', null, {
+        signed: true
+    });
+    res.redirect('../auth/login');
+})
 
 module.exports = router;

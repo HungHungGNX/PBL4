@@ -5,16 +5,20 @@ const socketio = require('socket.io')
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 
-var authMiddleware = require('../middlewares/auth.middleware');
-
-var userRoute = require('../routes/user.route');
-var authRoute = require('../routes/auth.route');
-
 var Chess = require('chess.js').Chess;
 
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
+const port = process.env.PORT || 3000
+const publicDirectoryPath = path.join(__dirname, '../public')
+
+var authMiddleware = require('../middlewares/auth.middleware');
+
+var userRoute = require('../routes/user.route');
+var authRoute = require('../routes/auth.route');
+
+
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -23,8 +27,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser('asdkaodkoas10230'));
 
-const port = process.env.PORT || 3000
-const publicDirectoryPath = path.join(__dirname, '../public')
+
 app.use('/auth', express.static('public'))
 app.use('/users', express.static('public'))
 app.use(cookieParser('asdkaodkoas10230'));

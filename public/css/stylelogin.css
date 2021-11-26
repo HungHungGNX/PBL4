@@ -456,3 +456,10 @@ form.sign-in-form {
 
 
 /* Heading */
+
+#ipUserName {
+    border-top-left-radius: 27px;
+    border-top-right-radius: 29px;
+    border-bottom-left-radius: 29px;
+    border-bottom-right-radius: 27px;
+}
