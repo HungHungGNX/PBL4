@@ -1,38 +1,110 @@
 doctype html
 head
-  meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
-  title GAME CHESS
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Master Chess
   link(rel='stylesheet' href='css/stylehome.css')
-  script(src='../js/home.js')
-  link(rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.10.0/css/all.css' integrity='sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p' crossorigin='anonymous')
-div
-  p MASTER CHESS
-  audio(autoplay='' loop='')
-    source(src='mp3/Mii_Chanel.mp3')
-  img.img1(src='./img/Chessgif.gif' width='217' height='218' alt='')
-  img.logo(src='https://betacssjs.chesscomfiles.com/bundles/web/images/social/gif-meta.65401f66.gif')
-  div
-    input.btn(type='button' value='START' onclick='Go()')
-    br
-    p#Design
-      | Enjoy your game
-  .NightCity
-    h2 PLAY GAME TOGETHER
-    h4
+  link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css')
+audio(autoplay='' loop='')
+  source(src='mp3/Mii_Chanel.mp3')
+header
+  a.brand(href='#') Master Chess
+  .menu-btn
+  .navigation
+    .navigation-items
+      a(href='/users/logout') Log out
+      a(href='#')
+      a(href='#')
+      a(href='#')
+section.home
+  video.video-slide.active(src='video/1.mp4' autoplay='' muted='' loop='')
+  video.video-slide(src='video/2.mp4' autoplay='' muted='' loop='')
+  video.video-slide(src='video/3.mp4' autoplay='' muted='' loop='')
+  video.video-slide(src='video/4.mp4' autoplay='' muted='' loop='')
+  video.video-slide(src='video/5.mp4' autoplay='' muted='' loop='')
+  .content.active
+    h1
+      | Play Game
+      br
+      span
+    p
       | Do you feel like playing chess online with a friend? Nothing simpler. Invite him to play and face up to an online chess duel. To invite a friend to play online, send him an invitation from the app, and when he accepts it, you can compete.
       | Play multiplayer Chess &amp; defeat your friends!
-  #content.col
-    .card.card1
-    .card.card2
-    .card.card3
-    .card.card4
-.social-share
-  .social-share-item.facebook
-    i.fab.fa-facebook.social-share-icon
-    span.social-share-text Press Start
-  .social-share-item.instagram
-    i.fab.fa-instagram.social-share-icon
-    span.social-share-text Enter number room
-  .social-share-item.twitter
-    i.fab.fa-twitter.social-share-icon
-    span.social-share-text Invite friend and play
+    a(href='/users/run') Play Game
+  .content
+    h1
+      | About Game 
+      br
+      span
+    p
+      | Master Chess is actually the work of a single chess enthusiast, so when I say &apos;we&apos;, I mean me, the engines, and the many great players of history whose discoveries and theory I am merely passing on. I hope you will find the content here of
+      | use in improving your game, but remember no amount of study can ever be a substitute for actual play!
+    a(href='/users/run') Play Game
+  .content
+    h1
+      | Single Play
+      br
+      span
+    p
+      | With single player mode you can comfortably practice preparing for the match with 2 player mode, making it easy to get used to the game
+    a(href='/users/run') Play Game
+  .content
+    h1
+      | Multier Play
+      br
+      span
+    p
+      | There is nothing more wonderful than playing with friends and playing chess with all your heart
+    a(href='/users/run') Play Game
+  .content
+    h1
+      | Thank you
+      br
+      span
+    p
+      | Thank you for trusting to use our website, hope you will support our products in the near future.
+    a(href='/users/run') Play Game
+  .media-icons
+    a(href='#')
+      i.fab.fa-facebook-f
+    a(href='#')
+      i.fab.fa-instagram
+    a(href='#')
+      i.fab.fa-twitter
+  .slider-navigation
+    .nav-btn.active
+    .nav-btn
+    .nav-btn
+    .nav-btn
+    .nav-btn
+script(type='text/javascript').
+  //Javacript for responsive navigation menu
+  const menuBtn = document.querySelector(".menu-btn");
+  const navigation = document.querySelector(".navigation");
+  menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("active");
+  navigation.classList.toggle("active");
+  });
+  //Javacript for video slider navigation
+  const btns = document.querySelectorAll(".nav-btn");
+  const slides = document.querySelectorAll(".video-slide");
+  const contents = document.querySelectorAll(".content");
+  var sliderNav = function(manual) {
+  btns.forEach((btn) => {
+  btn.classList.remove("active");
+  });
+  slides.forEach((slide) => {
+  slide.classList.remove("active");
+  });
+  contents.forEach((content) => {
+  content.classList.remove("active");
+  });
+  btns[manual].classList.add("active");
+  slides[manual].classList.add("active");
+  contents[manual].classList.add("active");
+  }
+  btns.forEach((btn, i) => {
+  btn.addEventListener("click", () => {
+  sliderNav(i);
+  });
+  });
